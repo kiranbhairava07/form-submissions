@@ -3,10 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Exclusive Gift Offer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
+        * {
+            box-sizing: border-box;
+        }
+        
         body {
             background: #f8f6ed;
             font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
@@ -15,7 +20,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 16px;
         }
+        
         .container {
             background: #fff7e6;
             border-radius: 18px;
@@ -23,10 +30,11 @@
             display: flex;
             overflow: hidden;
             max-width: 900px;
-            width: 95vw;
+            width: 100%;
             min-height: 540px;
             position: relative;
         }
+        
         .offer-left {
             background: #0a1a3c;
             color: #fff;
@@ -38,27 +46,37 @@
             padding: 2.5rem 1.5rem 2rem 1.5rem;
             position: relative;
         }
+        
         .offer-left .gift-icon {
             font-size: 2.5rem;
             margin-bottom: 1.2rem;
         }
+        
         .offer-left h2 {
             font-size: 2.1rem;
             font-weight: 700;
             margin: 0 0 0.7rem 0;
+            text-align: center;
+            line-height: 1.3;
         }
+        
         .offer-left .special {
             color: #ffe082;
             font-size: 1.1rem;
             font-style: italic;
             margin-bottom: 1.2rem;
+            text-align: center;
         }
+        
         .offer-left .gift-img {
             width: 90%;
+            max-width: 280px;
             border-radius: 12px;
             margin-top: 1.2rem;
             box-shadow: 0 2px 16px rgba(0,0,0,0.10);
+            object-fit: cover;
         }
+        
         .offer-right {
             flex: 1;
             display: flex;
@@ -68,6 +86,7 @@
             padding: 2.5rem 2.5rem 1.5rem 2.5rem;
             position: relative;
         }
+        
         .offer-badge {
             position: absolute;
             top: 2rem;
@@ -81,6 +100,7 @@
             box-shadow: 0 2px 8px rgba(229,57,53,0.10);
             z-index: 2;
         }
+        
         .offer-logo {
             background: #e3f0ff;
             color: #2563eb;
@@ -91,13 +111,18 @@
             margin-bottom: 1.2rem;
             box-shadow: 0 2px 8px rgba(79,140,255,0.10);
             text-align: center;
+            line-height: 1.4;
         }
+        
         .offer-title {
             font-size: 1.1rem;
             font-weight: 500;
             margin-bottom: 1.2rem;
             color: #222;
+            text-align: center;
+            max-width: 400px;
         }
+        
         .offer-form {
             background: #fff;
             border-radius: 12px;
@@ -110,12 +135,15 @@
             gap: 1.1rem;
             margin-bottom: 1.2rem;
         }
+        
         .offer-form label {
             font-size: 1rem;
             color: #222;
             margin-bottom: 0.3rem;
             font-weight: 500;
+            display: block;
         }
+        
         .offer-form input {
             padding: 0.8rem 1rem;
             border: 1px solid #d1d5db;
@@ -124,11 +152,14 @@
             outline: none;
             background: #f8fafc;
             transition: border-color 0.2s;
+            width: 100%;
         }
+        
         .offer-form input:focus {
             border-color: #4f8cff;
             background: #fff;
         }
+        
         .offer-form button {
             background: linear-gradient(90deg, #ffe082 0%, #bfa14a 100%);
             color: #222;
@@ -141,22 +172,29 @@
             margin-top: 0.5rem;
             box-shadow: 0 2px 8px rgba(191,161,74,0.10);
             transition: background 0.2s;
+            width: 100%;
         }
+        
         .offer-form button:hover {
             background: linear-gradient(90deg, #bfa14a 0%, #ffe082 100%);
         }
+        
         .offer-form .terms {
             font-size: 0.85rem;
             color: #bfa14a;
             text-align: center;
             margin-top: 0.7rem;
+            line-height: 1.4;
         }
+        
         .offer-benefits {
             display: flex;
             justify-content: center;
             gap: 2.5rem;
             margin-top: 1.2rem;
+            flex-wrap: wrap;
         }
+        
         .offer-benefit {
             display: flex;
             flex-direction: column;
@@ -164,32 +202,265 @@
             font-size: 0.98rem;
             color: #bfa14a;
             font-weight: 500;
+            min-width: 100px;
         }
+        
         .offer-benefit i {
             font-size: 1.5rem;
             margin-bottom: 0.3rem;
         }
-        @media (max-width: 800px) {
+        
+        /* Tablet Styles */
+        @media (max-width: 900px) {
             .container {
                 flex-direction: column;
-                min-width: 320px;
-                max-width: 98vw;
+                min-height: auto;
+                max-width: 600px;
             }
+            
             .offer-left {
                 width: 100%;
-                min-height: 220px;
-                flex-direction: row;
-                justify-content: flex-start;
-                align-items: center;
-                padding: 1.2rem 1rem;
+                min-height: 300px;
+                flex-direction: column;
+                padding: 2rem 1.5rem;
             }
+            
+            .offer-left h2 {
+                font-size: 1.8rem;
+            }
+            
             .offer-left .gift-img {
-                width: 120px;
-                margin-top: 0;
-                margin-left: 1.2rem;
+                width: 180px;
+                margin-top: 1rem;
             }
+            
             .offer-right {
-                padding: 1.2rem 1rem 1rem 1rem;
+                padding: 2rem 1.5rem 1.5rem 1.5rem;
+            }
+            
+            .offer-badge {
+                top: 1rem;
+                right: 1rem;
+                font-size: 1rem;
+                padding: 0.6rem 1rem;
+            }
+            
+            .offer-logo {
+                padding: 1rem 1.8rem;
+                font-size: 1.1rem;
+            }
+            
+            .offer-benefits {
+                gap: 2rem;
+            }
+        }
+        
+        /* Mobile Styles */
+        @media (max-width: 600px) {
+            body {
+                padding: 12px;
+                align-items: flex-start;
+                min-height: 100vh;
+            }
+            
+            .container {
+                border-radius: 16px;
+                min-height: auto;
+                margin: 10px 0;
+            }
+            
+            .offer-left {
+                min-height: 220px;
+                padding: 1.5rem 1rem;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .offer-left-content {
+                flex: 1;
+                text-align: left;
+            }
+            
+            .offer-left h2 {
+                font-size: 1.5rem;
+                text-align: left;
+                margin-bottom: 0.5rem;
+            }
+            
+            .offer-left .special {
+                text-align: left;
+                margin-bottom: 0;
+                font-size: 1rem;
+            }
+            
+            .offer-left .gift-icon {
+                font-size: 2rem;
+                margin-right: 1rem;
+                margin-bottom: 0;
+            }
+            
+            .offer-left .gift-img {
+                width: 100px;
+                height: 100px;
+                object-fit: cover;
+                margin: 0 0 0 1rem;
+                align-self: center;
+            }
+            
+            .offer-right {
+                padding: 1.5rem 1rem 1rem 1rem;
+            }
+            
+            .offer-badge {
+                top: 0.5rem;
+                right: 0.5rem;
+                font-size: 0.9rem;
+                padding: 0.5rem 0.8rem;
+            }
+            
+            .offer-logo {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+                margin-bottom: 1rem;
+            }
+            
+            .offer-title {
+                font-size: 1rem;
+                margin-bottom: 1rem;
+                padding: 0 0.5rem;
+            }
+            
+            .offer-form {
+                padding: 1.5rem 1.2rem;
+                margin-bottom: 1rem;
+                gap: 1rem;
+            }
+            
+            .offer-form label {
+                font-size: 0.95rem;
+            }
+            
+            .offer-form input {
+                padding: 0.7rem 0.9rem;
+                font-size: 0.95rem;
+            }
+            
+            .offer-form button {
+                padding: 0.8rem 0;
+                font-size: 1rem;
+            }
+            
+            .offer-form .terms {
+                font-size: 0.8rem;
+            }
+            
+            .offer-benefits {
+                gap: 1.5rem;
+                margin-top: 1rem;
+            }
+            
+            .offer-benefit {
+                font-size: 0.85rem;
+                min-width: 80px;
+            }
+            
+            .offer-benefit i {
+                font-size: 1.3rem;
+            }
+            
+            /* Small Mobile */
+            @media (max-width: 400px) {
+                .offer-left {
+                    min-height: 200px;
+                    padding: 1.2rem 0.8rem;
+                }
+                
+                .offer-left h2 {
+                    font-size: 1.3rem;
+                }
+                
+                .offer-left .gift-img {
+                    width: 80px;
+                    height: 80px;
+                }
+                
+                .offer-benefits {
+                    gap: 1rem;
+                }
+                
+                .offer-benefit {
+                    font-size: 0.8rem;
+                    min-width: 70px;
+                }
+                
+                .offer-benefit i {
+                    font-size: 1.2rem;
+                }
+                
+                .offer-form {
+                    padding: 1.2rem 1rem;
+                }
+            }
+            
+            /* Very Small Mobile (iPhone SE, etc.) */
+            @media (max-width: 350px) {
+                .offer-left {
+                    flex-direction: column;
+                    text-align: center;
+                    min-height: 180px;
+                }
+                
+                .offer-left-content {
+                    text-align: center;
+                }
+                
+                .offer-left h2 {
+                    text-align: center;
+                }
+                
+                .offer-left .special {
+                    text-align: center;
+                }
+                
+                .offer-left .gift-icon {
+                    margin-right: 0;
+                    margin-bottom: 0.5rem;
+                }
+                
+                .offer-left .gift-img {
+                    display: none;
+                }
+                
+                .offer-benefits {
+                    gap: 0.8rem;
+                }
+            }
+        }
+        
+        /* Landscape Mobile */
+        @media (max-height: 600px) and (orientation: landscape) {
+            body {
+                padding: 8px;
+                align-items: flex-start;
+            }
+            
+            .container {
+                min-height: auto;
+                margin: 5px 0;
+            }
+            
+            .offer-left {
+                min-height: 150px;
+            }
+            
+            .offer-right {
+                padding: 1rem;
+            }
+            
+            .offer-form {
+                padding: 1rem;
+                margin-bottom: 0.5rem;
             }
         }
     </style>
@@ -198,8 +469,10 @@
     <div class="container">
         <div class="offer-left">
             <div class="gift-icon">🎁</div>
-            <h2>A small gift<br>for you!</h2>
-            <div class="special">Special Offer</div>
+            <div class="offer-left-content">
+                <h2>A small gift for you!</h2>
+                <div class="special">Special Offer</div>
+            </div>
             <img class="gift-img" src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Gift">
         </div>
         <div class="offer-right">
