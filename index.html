@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exclusive Gift Offer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #f8f6ed;
+            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: #fff7e6;
+            border-radius: 18px;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+            display: flex;
+            overflow: hidden;
+            max-width: 900px;
+            width: 95vw;
+            min-height: 540px;
+            position: relative;
+        }
+        .offer-left {
+            background: #0a1a3c;
+            color: #fff;
+            width: 340px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2.5rem 1.5rem 2rem 1.5rem;
+            position: relative;
+        }
+        .offer-left .gift-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.2rem;
+        }
+        .offer-left h2 {
+            font-size: 2.1rem;
+            font-weight: 700;
+            margin: 0 0 0.7rem 0;
+        }
+        .offer-left .special {
+            color: #ffe082;
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 1.2rem;
+        }
+        .offer-left .gift-img {
+            width: 90%;
+            border-radius: 12px;
+            margin-top: 1.2rem;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.10);
+        }
+        .offer-right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2.5rem 2.5rem 1.5rem 2.5rem;
+            position: relative;
+        }
+        .offer-badge {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: #e53935;
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-radius: 0 16px 16px 0;
+            padding: 0.7rem 1.2rem 0.7rem 1.2rem;
+            box-shadow: 0 2px 8px rgba(229,57,53,0.10);
+            z-index: 2;
+        }
+        .offer-logo {
+            background: #e3f0ff;
+            color: #2563eb;
+            font-weight: 700;
+            font-size: 1.2rem;
+            border-radius: 50%;
+            padding: 1.1rem 2.2rem;
+            margin-bottom: 1.2rem;
+            box-shadow: 0 2px 8px rgba(79,140,255,0.10);
+            text-align: center;
+        }
+        .offer-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 1.2rem;
+            color: #222;
+        }
+        .offer-form {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+            padding: 2.2rem 2rem 1.5rem 2rem;
+            width: 100%;
+            max-width: 370px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.1rem;
+            margin-bottom: 1.2rem;
+        }
+        .offer-form label {
+            font-size: 1rem;
+            color: #222;
+            margin-bottom: 0.3rem;
+            font-weight: 500;
+        }
+        .offer-form input {
+            padding: 0.8rem 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 7px;
+            font-size: 1rem;
+            outline: none;
+            background: #f8fafc;
+            transition: border-color 0.2s;
+        }
+        .offer-form input:focus {
+            border-color: #4f8cff;
+            background: #fff;
+        }
+        .offer-form button {
+            background: linear-gradient(90deg, #ffe082 0%, #bfa14a 100%);
+            color: #222;
+            border: none;
+            padding: 0.9rem 0;
+            border-radius: 7px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 0.5rem;
+            box-shadow: 0 2px 8px rgba(191,161,74,0.10);
+            transition: background 0.2s;
+        }
+        .offer-form button:hover {
+            background: linear-gradient(90deg, #bfa14a 0%, #ffe082 100%);
+        }
+        .offer-form .terms {
+            font-size: 0.85rem;
+            color: #bfa14a;
+            text-align: center;
+            margin-top: 0.7rem;
+        }
+        .offer-benefits {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            margin-top: 1.2rem;
+        }
+        .offer-benefit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 0.98rem;
+            color: #bfa14a;
+            font-weight: 500;
+        }
+        .offer-benefit i {
+            font-size: 1.5rem;
+            margin-bottom: 0.3rem;
+        }
+        @media (max-width: 800px) {
+            .container {
+                flex-direction: column;
+                min-width: 320px;
+                max-width: 98vw;
+            }
+            .offer-left {
+                width: 100%;
+                min-height: 220px;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+                padding: 1.2rem 1rem;
+            }
+            .offer-left .gift-img {
+                width: 120px;
+                margin-top: 0;
+                margin-left: 1.2rem;
+            }
+            .offer-right {
+                padding: 1.2rem 1rem 1rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="offer-left">
+            <div class="gift-icon">🎁</div>
+            <h2>A small gift<br>for you!</h2>
+            <div class="special">Special Offer</div>
+            <img class="gift-img" src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Gift">
+        </div>
+        <div class="offer-right">
+            <div class="offer-badge">45%<br><span style="font-size:0.8rem;font-weight:400;">OFF</span></div>
+            <div class="offer-logo">MONSOON<br><span style="font-size:0.9rem;font-weight:400;">Cool Offer</span></div>
+            <div class="offer-title">Claim your exclusive offer by filling in your details below.</div>
+            <div id="formThankYouWrapper">
+                <form class="offer-form" id="phoneForm">
+                    <div>
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                    </div>
+                    <div>
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter 10 digit number" pattern="[0-9]{10}" required>
+                    </div>
+                    <button type="submit">Get It Now <span style="font-size:1.2em;vertical-align:middle;">→</span></button>
+                    <div class="terms">* TERMS & CONDITIONS APPLY *</div>
+                </form>
+                <div id="thankYouCard" style="display:none;">
+                    <div style="background:#fff;border-radius:16px;box-shadow:0 2px 16px rgba(0,0,0,0.07);padding:2.2rem 2rem 1.5rem 2rem;max-width:370px;text-align:center;">
+                        <div style="display:flex;justify-content:center;align-items:center;margin-bottom:1.2rem;">
+                            <div style="background:#ffe082;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="12" fill="none"/><path d="M7 13l3 3 7-7" stroke="#0a1a3c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                        </div>
+                        <div style="font-size:2rem;font-weight:700;color:#0a1a3c;margin-bottom:0.7rem;">Thank You!</div>
+                        <div style="font-size:1.08rem;color:#444;line-height:1.5;">Your offer has been claimed successfully. Our concierge team will contact you within the next 24 hours to finalize your seasonal gift.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="offer-benefits">
+                <div class="offer-benefit"><i>🎫</i>Free Tickets</div>
+                <div class="offer-benefit"><i>🛍️</i>Big Savings</div>
+                <div class="offer-benefit"><i>🔑</i>Exclusive Access</div>
+            </div>
+        </div>
+    </div>
+    <script>
+    const form = document.getElementById('phoneForm');
+    const thankYouCard = document.getElementById('thankYouCard');
+    const wrapper = document.getElementById('formThankYouWrapper');
+
+    // Your Sheet.best API endpoint and key
+    const SHEETBEST_API_URL = 'https://api.sheetbest.com/sheets/cbaf8dd8-c2e0-4ae4-9d11-24b3b7c2d495';
+    const SHEETBEST_API_KEY = 'YOUR_API_KEY_HERE'; // Optional but recommended
+
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const name = document.getElementById('name').value;
+        const phone = document.getElementById('phone').value;
+        
+        // Validation
+        if (!name || name.trim().length < 2) {
+            alert('Please enter a valid name (at least 2 characters)');
+            return;
+        }
+        if (!phone || !/^\d{10}$/.test(phone)) {
+            alert('Please enter a valid 10-digit phone number');
+            return;
+        }
+        
+        try {
+            // Prepare headers
+            const headers = {
+                'Content-Type': 'application/json'
+            };
+            
+            // Add API key if you have one (recommended)
+            if (SHEETBEST_API_KEY && SHEETBEST_API_KEY !== 'YOUR_API_KEY_HERE') {
+                headers['X-Api-Key'] = SHEETBEST_API_KEY;
+            }
+            
+            // Send data to Sheet.best
+            const response = await fetch(SHEETBEST_API_URL, {
+                method: 'POST',
+                headers: headers,
+                body: JSON.stringify({
+                    "Timestamp": new Date().toISOString(),
+                    "Name": name.trim(),
+                    "Phone": phone
+                })
+            });
+            
+            console.log('Response status:', response.status);
+            
+            if (response.ok) {
+                // Success - show thank you message
+                form.style.display = 'none';
+                thankYouCard.style.display = 'block';
+                wrapper.style.minHeight = wrapper.offsetHeight + 'px';
+                
+                // Clear form fields
+                document.getElementById('phone').value = '';
+                document.getElementById('name').value = '';
+                
+                console.log('Data saved successfully!');
+            } else {
+                const errorText = await response.text();
+                console.error('Error response:', errorText);
+                alert('Failed to save data. Please try again.');
+            }
+        } catch (err) {
+            console.error('Fetch error:', err);
+            alert('Network error. Please check your connection.');
+        }
+        
+        return false;
+    });
+    </script>
+</body>
+</html>
