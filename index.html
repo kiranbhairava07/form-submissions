@@ -483,11 +483,11 @@
                 <form class="offer-form" id="phoneForm">
                     <div>
                         <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                        <input type="text" id="name" name="name" placeholder="Enter your name" pattern="[A-Za-z\s]{2,50}" title="Name should contain only letters and spaces" required>
                     </div>
                     <div>
                         <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" placeholder="Enter 10 digit number" pattern="[0-9]{10}" required>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter 10 digit number" pattern="[0-9]{10}" title="Please enter a valid 10-digit phone number" required>
                     </div>
                     <button type="submit">Get It Now <span style="font-size:1.2em;vertical-align:middle;">→</span></button>
                     <!-- <div class="terms">* TERMS & CONDITIONS APPLY *</div> -->
@@ -548,12 +548,25 @@
                 headers['X-Api-Key'] = SHEETBEST_API_KEY;
             }
             
+            // Get current time in Indian Standard Time (IST)
+            const now = new Date();
+            const istTime = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Kolkata' }));
+            const timestamp = istTime.toLocaleString('en-IN', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false
+            });
+            
             // Send data to Sheet.best
             const response = await fetch(SHEETBEST_API_URL, {
                 method: 'POST',
                 headers: headers,
                 body: JSON.stringify({
-                    "Timestamp": new Date().toISOString(),
+                    "Timestamp": timestamp,
                     "Name": name.trim(),
                     "Phone": phone
                 })
